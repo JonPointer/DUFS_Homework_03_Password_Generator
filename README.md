@@ -1,3 +1,50 @@
+# Homework 03 JavaScript: Password Generator
+
+## Introduction
+
+In this assignment, we were to create a random password generator that prompted the user for the following:
+
+- Number of desired characters in the password between 8 and 128, inclusive.
+- Whether they would like lower case characters
+- Whether they would like upper case characters
+- Whether they would like numeric characters
+- Whether they would like special characters
+
+In addition, we needed to check their input for errors on each step.
+
+Next, the final password would be generated and displayed.
+
+## Approach
+
+To realize the password generator, I took the following steps:
+
+- I asked the user for the desired number of characters and looped on that question until their answer was between 8 and 128, inclusive
+- I asked the user yes or no for each of the types of characters - then checked to make sure that at least one had been selected
+- To generate the password, I utilized a random number generator between 32 and 126, inclusive - all of the ASCII character codes - with the following checking
+  - For each random character selected, I checked which type of character it was and whether the user had selected that type.
+  - If this was true, then I added the character to the string and continue.
+  - If it was a character type that they did not want, then I reset the loop back one counter value and tried again.
+  - One note on the special characters:
+    - The special character values are distributed throughout the ASCII table. Given this, I first checked the other three types (lowercase, uppercase, and numeric), then, if it wasn't one of those, I knew it was a special character.
+
+## Results
+
+The password generator works well with all input conditions.
+
+### Path to GitHub Repository
+
+<https://github.com/JonPointer/DUFS_Homework_03_Password_Generator>
+
+### Path to GitHub Hosted Application
+
+<https://jonpointer.github.io/DUFS_Homework_03_Password_Generator/>
+
+### Screenshot of the completed application
+
+![Password Generator Screenshot](./Assets/Final-Solution-Screenshot.PNG)
+
+# The following is the original Readme file assignment
+
 # 03 JavaScript: Password Generator
 
 ## Your Task
@@ -42,52 +89,52 @@ The following image shows the web application's appearance and functionality:
 
 ## Grading Requirements
 
-This homework is graded based on the following criteria: 
+This homework is graded based on the following criteria:
 
 ### Technical Acceptance Criteria: 40%
 
-* Satisfies all of the above acceptance criteria plus the following:
+- Satisfies all of the above acceptance criteria plus the following:
 
-  * The homework should not produce any errors in the console when you inspect it using Chrome DevTools.
+  - The homework should not produce any errors in the console when you inspect it using Chrome DevTools.
 
 ### Deployment: 32%
 
-* Application deployed at live URL.
+- Application deployed at live URL.
 
-* Application loads with no errors.
+- Application loads with no errors.
 
-* Application GitHub URL submitted.
+- Application GitHub URL submitted.
 
-* GitHub repository that contains application code.
+- GitHub repository that contains application code.
 
 ### Application Quality: 15%
 
-* Application user experience is intuitive and easy to navigate.
+- Application user experience is intuitive and easy to navigate.
 
-* Application user interface style is clean and polished.
+- Application user interface style is clean and polished.
 
-* Application resembles the mock-up functionality provided in the homework instructions.
+- Application resembles the mock-up functionality provided in the homework instructions.
 
 ### Repository Quality: 13%
 
-* Repository has a unique name.
+- Repository has a unique name.
 
-* Repository follows best practices for file structure and naming conventions.
+- Repository follows best practices for file structure and naming conventions.
 
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+- Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
 
-* Repository contains multiple descriptive commit messages.
+- Repository contains multiple descriptive commit messages.
 
-* Repository contains quality README file with description, screenshot, and link to deployed application.
-
+- Repository contains quality README file with description, screenshot, and link to deployed application.
 
 ## Review
 
 You are required to submit the following for review:
 
-* The URL of the deployed application.
+- The URL of the deployed application.
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+- The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
 
-- - -
+---
+
 © 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.

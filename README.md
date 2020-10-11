@@ -22,10 +22,10 @@ To realize the password generator, I took the following steps:
 - I asked the user yes or no for each of the types of characters - then checked to make sure that at least one had been selected
 - To generate the password, I utilized a random number generator between 32 and 126, inclusive - all of the ASCII character codes - with the following checking
   - For each random character selected, I checked which type of character it was and whether the user had selected that type.
-  - If this was true, then I added the character to the string and continue.
+  - If this was true, then I added the character to the string and continued.
   - If it was a character type that they did not want, then I reset the loop back one counter value and tried again.
   - One note on the special characters:
-    - The special character values are distributed throughout the ASCII table. Given this, I first checked the other three types (lowercase, uppercase, and numeric), then, if it wasn't one of those, I knew it was a special character.
+    - The special character values are distributed throughout the ASCII table. Given this, I first checked the other three types (lowercase, uppercase, and numeric). Then, if it wasn't one of those, I knew it was a special character.
 
 ## Results
 

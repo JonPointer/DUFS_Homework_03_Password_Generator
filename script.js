@@ -44,6 +44,7 @@ function generatePassword() {
   }
   //
   // Generate the random characters.
+  //
   // For ascii text values:
   //    lowercase = 97-122
   //    uppercase = 65-90
@@ -54,7 +55,7 @@ function generatePassword() {
   var minChar = 32;
   var maxChar = 126;
   //
-  // Start a blank screen to build the password
+  // Start a blank string to build the password
   var passwordBuild = "";
   var tmpAddChar = "";
   var tmpString = "";

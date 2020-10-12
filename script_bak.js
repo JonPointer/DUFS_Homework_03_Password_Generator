@@ -14,20 +14,6 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function checkChar(charNum, min, max, type) {
-  var range = false;
-  var rtnString = "";
-  if (charNum >= min && charNum <= max) {
-    // The character is in the range of the type
-    range = true;
-    if (type) {
-      // The user wants this type, so return the character of this ASCII number
-      rtnString = String.fromCharCode(tmpCharacterNum);
-    }
-  }
-  return [range, rtnString];
-}
-
 // Generate password function
 function generatePassword() {
   //
@@ -71,28 +57,52 @@ function generatePassword() {
   //
   // Start a blank string to build the password
   var passwordBuild = "";
-  var tmpString = "";
   var tmpAddChar = "";
+  var tmpString = "";
   //
   // Loop to pick pwLength number of characters
   for (var i = 1; i <= pwLength; i++) {
     // First, pick a random number from the ascii table
     var tmpCharacterNum = getRndInteger(minChar, maxChar);
     //
-    // Check to see if this ASCII number is lowercase and if the user wanted lowercase
-    tmpAdd = checkChar(tmpCharacterNum, 97, 122, lower);
-    // If charCheck[0] is false, then it wasn't lowercase and we need to check the next type
-    if (!charCheck) {
-      // Now we check to see if this ASCII number is uppercase
-      charCheck = checkChar(tmpCharacterNum, 65, 90, upper);
+    // Check to see if this ASCII number is lowercase
+    if (tmpCharacterNum >= 97 && tmpCharacterNum <= 122) {
+      // It's lowercase, now see if they wanted lowercase
+      if (lower) {
+        // it's lower and they wanted lower, so set the character to add
+        tmpAddChar = String.fromCharCode(tmpCharacterNum);
+      } else {
+        // it's lower, but they didn't want lower, so don't add it, and decrease the counter to redo this character
+        tmpAddChar = "";
+        i--;
+      }
     }
-    // If tmpAddChar is an empty string, then we need to check the next type
-    if (tmpAddChar === "") {
-      // Check to see if this ASCII number is numeric
-      tmpAddChar = checkChar(tmpCharacterNum, 48, 57, numeric);
+    //
+    // Check to see if this ASCII number is uppercase
+    else if (tmpCharacterNum >= 65 && tmpCharacterNum <= 90) {
+      // It's uppercase, now see if they wanted uppercase
+      if (upper) {
+        // it's upper and they wanted upper, so set the character to add
+        tmpAddChar = String.fromCharCode(tmpCharacterNum);
+      } else {
+        // it's upper, but they didn't want upper, so don't add it, and decrease the counter to redo this character
+        tmpAddChar = "";
+        i--;
+      }
     }
-    // Now, if tmpAddChar is still an empty string, then 
-
+    //
+    // Check to see if this ASCII number is numeric
+    else if (tmpCharacterNum >= 48 && tmpCharacterNum <= 57) {
+      // It's numeric, now see if they wanted numeric
+      if (numeric) {
+        // it's numeric and they wanted numeric, so set the character to add
+        tmpAddChar = String.fromCharCode(tmpCharacterNum);
+      } else {
+        // it's numeric, but they didn't want numeric, so don't add it, and decrease the counter to redo this character
+        tmpAddChar = "";
+        i--;
+      }
+    }
     //
     // If we've reached this point, the character is a special character
     else {
